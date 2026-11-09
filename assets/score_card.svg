@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" width="100%" height="100%">
+  <defs>
+    <linearGradient id="scoreBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0c1021" />
+      <stop offset="100%" stop-color="#141c38" />
+    </linearGradient>
+
+    <linearGradient id="gaugeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="50%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#818cf8" />
+    </linearGradient>
+
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <style>
+      @keyframes dashAnim {
+        from { stroke-dashoffset: 440; }
+        to { stroke-dashoffset: 44; }
+      }
+      @keyframes countUp {
+        0% { opacity: 0; transform: scale(0.8); }
+        100% { opacity: 1; transform: scale(1); }
+      }
+      @keyframes barGrow1 { from { width: 0; } to { width: 280px; } }
+      @keyframes barGrow2 { from { width: 0; } to { width: 190px; } }
+      @keyframes barGrow3 { from { width: 0; } to { width: 185px; } }
+      @keyframes barGrow4 { from { width: 0; } to { width: 140px; } }
+      @keyframes barGrow5 { from { width: 0; } to { width: 95px; } }
+      @keyframes barGrow6 { from { width: 0; } to { width: 48px; } }
+
+      .gauge-circle {
+        stroke-dasharray: 440;
+        stroke-dashoffset: 44;
+        animation: dashAnim 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+      .score-number {
+        transform-origin: 150px 175px;
+        animation: countUp 1s ease-out forwards;
+      }
+      .bar-1 { animation: barGrow1 1.4s ease-out forwards; }
+      .bar-2 { animation: barGrow2 1.6s ease-out forwards; }
+      .bar-3 { animation: barGrow3 1.8s ease-out forwards; }
+      .bar-4 { animation: barGrow4 2.0s ease-out forwards; }
+      .bar-5 { animation: barGrow5 2.2s ease-out forwards; }
+      .bar-6 { animation: barGrow6 2.4s ease-out forwards; }
+      .mono { font-family: "SF Mono", "Fira Code", Consolas, monospace; }
+      .sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    </style>
+  </defs>
+
+  <!-- Card Background -->
+  <rect width="800" height="360" rx="16" fill="url(#scoreBg)" stroke="#1e293b" stroke-width="1.5" />
+
+  <!-- Left: Circular Gauge Indicator (94/100) -->
+  <g transform="translate(30, 20)">
+    <!-- Header Label -->
+    <rect x="25" y="20" width="160" height="26" rx="13" fill="#1e293b" stroke="#10b981" stroke-width="1" />
+    <circle cx="39" cy="33" r="4" fill="#10b981" filter="url(#softGlow)" />
+    <text x="51" y="37" fill="#6ee7b7" font-size="11" class="mono" font-weight="700">FIT SCORE EVALUATOR</text>
+
+    <!-- Gauge Track -->
+    <circle cx="105" cy="165" r="70" fill="none" stroke="#1e293b" stroke-width="14" />
+    <!-- Gauge Fill -->
+    <circle cx="105" cy="165" r="70" fill="none" stroke="url(#gaugeGrad)" stroke-width="14" 
+            stroke-linecap="round" transform="rotate(-90 105 165)" class="gauge-circle" filter="url(#softGlow)" />
+
+    <!-- Center Score Text -->
+    <text x="105" y="160" text-anchor="middle" fill="#ffffff" font-size="44" class="sans score-number" font-weight="800">94</text>
+    <text x="105" y="185" text-anchor="middle" fill="#94a3b8" font-size="13" class="mono">/ 100 PTS</text>
+
+    <!-- Tier Tag -->
+    <rect x="35" y="260" width="140" height="30" rx="8" fill="#065f46" stroke="#10b981" stroke-width="1.2" />
+    <text x="105" y="280" text-anchor="middle" fill="#a7f3d0" font-size="12" class="sans" font-weight="700">⚡ APPLY FIRST</text>
+  </g>
+
+  <!-- Divider Line -->
+  <line x1="260" y1="35" x2="260" y2="325" stroke="#1e293b" stroke-width="1" />
+
+  <!-- Right: 100-Point Breakdown Bars -->
+  <g transform="translate(290, 30)">
+    <text x="0" y="20" fill="#f8fafc" font-size="16" class="sans" font-weight="700">Algorithmic Scoring Breakdown</text>
+    <text x="0" y="38" fill="#94a3b8" font-size="12" class="sans">Evaluated against verified vacancy requirements in real-time</text>
+
+    <!-- 1. Technical Stack Overlap -->
+    <g transform="translate(0, 60)">
+      <text x="0" y="12" fill="#cbd5e1" font-size="12" class="sans" font-weight="600">Technical Stack Overlap</text>
+      <text x="460" y="12" text-anchor="end" fill="#38bdf8" font-size="12" class="mono" font-weight="700">28 / 30 pts</text>
+      <rect x="0" y="18" width="460" height="8" rx="4" fill="#1e293b" />
+      <rect x="0" y="18" height="8" rx="4" fill="#38bdf8" class="bar-1" />
+    </g>
+
+    <!-- 2. Seniority & Location Eligibility -->
+    <g transform="translate(0, 100)">
+      <text x="0" y="12" fill="#cbd5e1" font-size="12" class="sans" font-weight="600">Seniority &amp; Location Eligibility</text>
+      <text x="460" y="12" text-anchor="end" fill="#818cf8" font-size="12" class="mono" font-weight="700">19 / 20 pts</text>
+      <rect x="0" y="18" width="460" height="8" rx="4" fill="#1e293b" />
+      <rect x="0" y="18" height="8" rx="4" fill="#818cf8" class="bar-2" />
+    </g>
+
+    <!-- 3. Demonstrated Project Proof -->
+    <g transform="translate(0, 140)">
+      <text x="0" y="12" fill="#cbd5e1" font-size="12" class="sans" font-weight="600">Demonstrated Project Proof (GitHub / Live)</text>
+      <text x="460" y="12" text-anchor="end" fill="#a78bfa" font-size="12" class="mono" font-weight="700">19 / 20 pts</text>
+      <rect x="0" y="18" width="460" height="8" rx="4" fill="#1e293b" />
+      <rect x="0" y="18" height="8" rx="4" fill="#a78bfa" class="bar-3" />
+    </g>
+
+    <!-- 4. Core Fundamentals & Readiness -->
+    <g transform="translate(0, 180)">
+      <text x="0" y="12" fill="#cbd5e1" font-size="12" class="sans" font-weight="600">Core Fundamentals &amp; Interview Readiness</text>
+      <text x="460" y="12" text-anchor="end" fill="#c084fc" font-size="12" class="mono" font-weight="700">14 / 15 pts</text>
+      <rect x="0" y="18" width="460" height="8" rx="4" fill="#1e293b" />
+      <rect x="0" y="18" height="8" rx="4" fill="#c084fc" class="bar-4" />
+    </g>
+
+    <!-- 5. Domain & Product Relevance -->
+    <g transform="translate(0, 220)">
+      <text x="0" y="12" fill="#cbd5e1" font-size="12" class="sans" font-weight="600">Domain &amp; Product Relevance</text>
+      <text x="460" y="12" text-anchor="end" fill="#e879f9" font-size="12" class="mono" font-weight="700">9 / 10 pts</text>
+      <rect x="0" y="18" width="460" height="8" rx="4" fill="#1e293b" />
+      <rect x="0" y="18" height="8" rx="4" fill="#e879f9" class="bar-5" />
+    </g>
+
+    <!-- 6. Success Likelihood & Gap Audit -->
+    <g transform="translate(0, 260)">
+      <text x="0" y="12" fill="#cbd5e1" font-size="12" class="sans" font-weight="600">Success Likelihood (Mandatory Gap Free)</text>
+      <text x="460" y="12" text-anchor="end" fill="#10b981" font-size="12" class="mono" font-weight="700">5 / 5 pts</text>
+      <rect x="0" y="18" width="460" height="8" rx="4" fill="#1e293b" />
+      <rect x="0" y="18" height="8" rx="4" fill="#10b981" class="bar-6" />
+    </g>
+  </g>
+</svg>
+

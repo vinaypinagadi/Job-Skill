@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 240" width="100%" height="100%">
+  <defs>
+    <linearGradient id="pipeBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090d1a" />
+      <stop offset="100%" stop-color="#0d1527" />
+    </linearGradient>
+
+    <linearGradient id="flowGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#818cf8" />
+      <stop offset="100%" stop-color="#34d399" />
+    </linearGradient>
+
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <style>
+      @keyframes dashFlow {
+        from { stroke-dashoffset: 60; }
+        to { stroke-dashoffset: 0; }
+      }
+      @keyframes pulseDot {
+        0%, 100% { r: 5px; opacity: 0.6; }
+        50% { r: 8px; opacity: 1; }
+      }
+      @keyframes floatCard {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-4px); }
+      }
+      .flowing-line {
+        stroke-dasharray: 6 6;
+        animation: dashFlow 1.8s linear infinite;
+      }
+      .card-1 { animation: floatCard 4s ease-in-out infinite; }
+      .card-2 { animation: floatCard 4s ease-in-out infinite 0.8s; }
+      .card-3 { animation: floatCard 4s ease-in-out infinite 1.6s; }
+      .card-4 { animation: floatCard 4s ease-in-out infinite 2.4s; }
+      .card-5 { animation: floatCard 4s ease-in-out infinite 3.2s; }
+      .mono { font-family: "SF Mono", "Fira Code", Consolas, monospace; }
+      .sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    </style>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect width="1100" height="240" rx="16" fill="url(#pipeBg)" stroke="#1e293b" stroke-width="1.5" />
+
+  <!-- Connecting Flow Line -->
+  <line x1="120" y1="120" x2="980" y2="120" stroke="#334155" stroke-width="3" />
+  <line x1="120" y1="120" x2="980" y2="120" stroke="url(#flowGrad)" stroke-width="3" class="flowing-line" filter="url(#softGlow)" />
+
+  <!-- STAGE 1 -->
+  <g class="card-1" transform="translate(40, 45)">
+    <rect width="170" height="150" rx="12" fill="#0f172a" stroke="#38bdf8" stroke-width="1.2" />
+    <circle cx="85" cy="35" r="22" fill="#0369a1" opacity="0.3" />
+    <text x="85" y="42" text-anchor="middle" font-size="20">📄</text>
+    <rect x="55" y="66" width="60" height="18" rx="9" fill="#0284c7" opacity="0.3" />
+    <text x="85" y="79" text-anchor="middle" fill="#38bdf8" font-size="10" class="mono" font-weight="700">STAGE 01</text>
+    <text x="85" y="105" text-anchor="middle" fill="#f8fafc" font-size="13" class="sans" font-weight="700">Resume Ingest</text>
+    <text x="85" y="125" text-anchor="middle" fill="#94a3b8" font-size="10.5" class="sans">Stack &amp; Proof Audit</text>
+    <circle cx="85" cy="150" r="5" fill="#38bdf8" />
+  </g>
+
+  <!-- STAGE 2 -->
+  <g class="card-2" transform="translate(245, 45)">
+    <rect width="170" height="150" rx="12" fill="#0f172a" stroke="#818cf8" stroke-width="1.2" />
+    <circle cx="85" cy="35" r="22" fill="#4338ca" opacity="0.3" />
+    <text x="85" y="42" text-anchor="middle" font-size="20">🌐</text>
+    <rect x="55" y="66" width="60" height="18" rx="9" fill="#4f46e5" opacity="0.3" />
+    <text x="85" y="79" text-anchor="middle" fill="#a5b4fc" font-size="10" class="mono" font-weight="700">STAGE 02</text>
+    <text x="85" y="105" text-anchor="middle" fill="#f8fafc" font-size="13" class="sans" font-weight="700">Live Discovery</text>
+    <text x="85" y="125" text-anchor="middle" fill="#94a3b8" font-size="10.5" class="sans">5 Target Role Batches</text>
+    <circle cx="85" cy="150" r="5" fill="#818cf8" />
+  </g>
+
+  <!-- STAGE 3 (Highlighted - Verification Engine) -->
+  <g class="card-3" transform="translate(450, 38)">
+    <rect width="195" height="164" rx="14" fill="#131d36" stroke="#10b981" stroke-width="2" filter="url(#softGlow)" />
+    <circle cx="97" cy="38" r="24" fill="#065f46" opacity="0.4" />
+    <text x="97" y="46" text-anchor="middle" font-size="22">🛡️</text>
+    <rect x="58" y="72" width="78" height="20" rx="10" fill="#059669" opacity="0.35" />
+    <text x="97" y="86" text-anchor="middle" fill="#34d399" font-size="10.5" class="mono" font-weight="700">STAGE 03</text>
+    <text x="97" y="113" text-anchor="middle" fill="#ffffff" font-size="14" class="sans" font-weight="800">Live Verification</text>
+    <text x="97" y="133" text-anchor="middle" fill="#6ee7b7" font-size="11" class="mono">HTTP 200 + ATS Reach</text>
+    <circle cx="97" cy="164" r="6" fill="#10b981" />
+  </g>
+
+  <!-- STAGE 4 -->
+  <g class="card-4" transform="translate(680, 45)">
+    <rect width="170" height="150" rx="12" fill="#0f172a" stroke="#c084fc" stroke-width="1.2" />
+    <circle cx="85" cy="35" r="22" fill="#7e22ce" opacity="0.3" />
+    <text x="85" y="42" text-anchor="middle" font-size="20">📊</text>
+    <rect x="55" y="66" width="60" height="18" rx="9" fill="#9333ea" opacity="0.3" />
+    <text x="85" y="79" text-anchor="middle" fill="#d8b4fe" font-size="10" class="mono" font-weight="700">STAGE 04</text>
+    <text x="85" y="105" text-anchor="middle" fill="#f8fafc" font-size="13" class="sans" font-weight="700">100-Pt Scoring</text>
+    <text x="85" y="125" text-anchor="middle" fill="#94a3b8" font-size="10.5" class="sans">Strict Rubric &amp; Gaps</text>
+    <circle cx="85" cy="150" r="5" fill="#c084fc" />
+  </g>
+
+  <!-- STAGE 5 -->
+  <g class="card-5" transform="translate(885, 45)">
+    <rect width="175" height="150" rx="12" fill="#0f172a" stroke="#f59e0b" stroke-width="1.2" />
+    <circle cx="87" cy="35" r="22" fill="#b45309" opacity="0.3" />
+    <text x="87" y="42" text-anchor="middle" font-size="20">🚀</text>
+    <rect x="57" y="66" width="60" height="18" rx="9" fill="#d97706" opacity="0.3" />
+    <text x="87" y="79" text-anchor="middle" fill="#fde68a" font-size="10" class="mono" font-weight="700">STAGE 05</text>
+    <text x="87" y="105" text-anchor="middle" fill="#f8fafc" font-size="13" class="sans" font-weight="700">Atomic Refresh</text>
+    <text x="87" y="125" text-anchor="middle" fill="#94a3b8" font-size="10.5" class="sans">Dashboard &amp; Outreach</text>
+    <circle cx="87" cy="150" r="5" fill="#f59e0b" />
+  </g>
+</svg>
+
